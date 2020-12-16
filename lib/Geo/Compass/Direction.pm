@@ -64,7 +64,7 @@ Converts a compass heading degree into human readable direction
 
 =head1 EXPORT_OK
 
-This module exports only a single function, C<<direction()>>, and it must
+This module exports only a single function, C<direction()>, and it must
 be imported explicitly.
 
 =head1 FUNCTIONS
