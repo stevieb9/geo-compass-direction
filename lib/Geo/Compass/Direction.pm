@@ -37,17 +37,13 @@ __END__
 
 =head1 NAME
 
-Geo::Compass::Direction - Convert a compass degree into human readable
+Geo::Compass::Direction - Convert a compass heading degree into human readable
 direction
 
 <a href="http://travis-ci.com/stevieb9/geo-compass-direction"><img src="https://www.travis-ci.com/stevieb9/geo-compass-direction.svg?branch=master"/>
 <a href='https://coveralls.io/github/stevieb9/geo-compass-direction?branch=master'><img src='https://coveralls.io/repos/stevieb9/geo-compass-direction/badge.svg?branch=master&service=github' alt='Coverage Status' /></a>
 
 =head1 SYNOPSIS
-
-Quick summary of what the module does.
-
-Perhaps a little code snippet.
 
     use Geo::Compass::Direction qw(direction);
 
@@ -59,8 +55,8 @@ Perhaps a little code snippet.
 
 =head2 DESCRIPTION
 
-Converts a compass degree heading into human readable direction
-(eg: C<N>, C<SSW>) etc.
+Converts a compass heading degree into human readable direction
+(eg: C<N>, C<SSW>)
 
 =head1 EXPORT_OK
 
@@ -69,7 +65,7 @@ be imported explicitly.
 
 =head1 FUNCTIONS
 
-=head2 direction($degree, $variation)
+=head2 direction($degree)
 
 Convert a compass heading degree into human readable format.
 
@@ -79,6 +75,8 @@ Parameters:
 
 Mandatory, Int|Float: The compass degree to use for the conversion. Can be an
 integer (eg C<360>) or a float (eg C<179.12352211>).
+
+Returns: String. The letter designation of the heading.
 
 =head1 AUTHOR
 
