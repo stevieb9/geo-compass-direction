@@ -17,6 +17,12 @@ use Geo::Compass::Direction qw(direction);
     is direction(180.11111111), 'S', "float param ok";
 }
 
+# param out of range (0-360)
+{
+    for (-1000..-1, 361..1000) {
+        is eval { direction($_); 1 }, undef, "$_ is out of range ok";
+    }
+}
 
 # degree to direction
 {

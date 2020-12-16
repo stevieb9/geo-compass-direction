@@ -25,6 +25,9 @@ sub direction {
     if ($deg !~ /^\d+$/ && $deg !~ /^\d+\.\d+$/) {
         croak("The degree parameter for direction() must be an int or float");
     }
+    if ($deg < 0 || $deg > 360) {
+        croak("The degree parameter must be an int or float between 0-360");
+    }
 
     my $calc = (($deg % 360) / 22.5) + .5;
 
