@@ -4,6 +4,7 @@ use 5.006;
 use strict;
 use warnings;
 
+use Carp qw(croak);
 use Exporter qw(import);
 
 our $VERSION = '0.01';
@@ -11,18 +12,23 @@ our $VERSION = '0.01';
 our @ISA = qw(Exporter);
 our @EXPORT_OK = qw(direction);
 
-sub direction {
-    shift if @_ > 1;
+my @DIRECTIONS = qw(
+    N NNE NE ENE E ESE SE SSE S SSW SW WSW W WNW NW NNW N
+);
 
+sub direction {
     my ($deg) = @_;
 
-    my @directions = qw(
-        N NNE NE ENE E ESE SE SSE S SSW SW WSW W WNW NW NNW N
-    );
+    if (! defined $deg) {
+        croak("direction() must have an integer or float as its only parameter");
+    }
+    if ($deg !~ /^\d+$/ && $deg !~ /^\d+\.\d+$/) {
+        croak("The degree parameter for direction() must be an int or float");
+    }
 
     my $calc = (($deg % 360) / 22.5) + .5;
 
-    return $directions[$calc];
+    return $DIRECTIONS[$calc];
 }
 sub __placeholder {}
 
@@ -34,6 +40,9 @@ __END__
 Geo::Compass::Direction - Convert a compass degree into human readable
 direction
 
+<a href="http://travis-ci.com/stevieb9/geo-compass-direction"><img src="https://www.travis-ci.com/stevieb9/geo-compass-direction.svg?branch=master"/>
+<a href='https://coveralls.io/github/stevieb9/geo-compass-direction?branch=master'><img src='https://coveralls.io/repos/stevieb9/geo-compass-direction/badge.svg?branch=master&service=github' alt='Coverage Status' /></a>
+
 =head1 SYNOPSIS
 
 Quick summary of what the module does.
@@ -41,6 +50,17 @@ Quick summary of what the module does.
 Perhaps a little code snippet.
 
     use Geo::Compass::Direction qw(direction);
+
+    my $dir;
+
+    $dir = direction(0);              # N
+    $dir = direction(327);            # NNW
+    $dir = direction(180.235323411);  # S
+
+=head2 DESCRIPTION
+
+Converts a compass degree heading into human readable direction
+(eg: C<N>, C<SSW>) etc.
 
 =head1 EXPORT_OK
 
@@ -50,6 +70,15 @@ be imported explicitly.
 =head1 FUNCTIONS
 
 =head2 direction($degree, $variation)
+
+Convert a compass heading degree into human readable format.
+
+Parameters:
+
+    $degree
+
+Mandatory, Int|Float: The compass degree to use for the conversion. Can be an
+integer (eg C<360>) or a float (eg C<179.12352211>).
 
 =head1 AUTHOR
 
