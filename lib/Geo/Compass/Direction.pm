@@ -43,6 +43,7 @@ __END__
 Geo::Compass::Direction - Convert a compass heading degree into human readable
 direction
 
+=for html
 <a href="http://travis-ci.com/stevieb9/geo-compass-direction"><img src="https://www.travis-ci.com/stevieb9/geo-compass-direction.svg?branch=master"/>
 <a href='https://coveralls.io/github/stevieb9/geo-compass-direction?branch=master'><img src='https://coveralls.io/repos/stevieb9/geo-compass-direction/badge.svg?branch=master&service=github' alt='Coverage Status' /></a>
 
