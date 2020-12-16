@@ -56,7 +56,7 @@ direction
     $dir = direction(327);            # NNW
     $dir = direction(180.235323411);  # S
 
-=head2 DESCRIPTION
+=head1 DESCRIPTION
 
 Converts a compass heading degree into human readable direction
 (eg: C<N>, C<SSW>)
