@@ -7,7 +7,7 @@ use warnings;
 use Carp qw(croak);
 use Exporter qw(import);
 
-our $VERSION = '1.00';
+our $VERSION = '1.01';
 
 our @ISA = qw(Exporter);
 our @EXPORT_OK = qw(direction);
