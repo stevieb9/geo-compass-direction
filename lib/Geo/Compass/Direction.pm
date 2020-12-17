@@ -82,6 +82,10 @@ integer (eg C<360>) or a float (eg C<179.12352211>).
 
 Returns: String. The letter designation of the heading.
 
+=head1 SEE ALSO
+
+L<Compass::Bearing>, L<Compass::Points>
+
 =head1 AUTHOR
 
 Steve Bertrand, C<< <steveb at cpan.org> >>
